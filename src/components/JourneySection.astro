@@ -1,0 +1,241 @@
+---
+import { setupSteps } from '../data/steps';
+import { siteConfig } from '../config/site';
+---
+
+<section id="journey" class="journey-section" aria-labelledby="journey-title">
+  <div class="container-custom">
+    <!-- Header -->
+    <div class="section-header">
+      <div class="section-badge">
+        <span>🗺️ THEME PARK JOURNEY</span>
+      </div>
+      <h2 id="journey-title" class="section-title">XSUS 怎么开始？</h2>
+      <p class="section-desc">
+        四站游乐路线，轻松从零到一。新手友好无需复杂知识，一键开启全球自由网络。
+      </p>
+    </div>
+
+    <!-- Steps Road Route -->
+    <div class="journey-track">
+      <!-- Curved Connecting Line (Desktop) -->
+      <div class="route-line-svg" aria-hidden="true">
+        <svg width="100%" height="100%" viewBox="0 0 1000 80" preserveAspectRatio="none">
+          <path
+            d="M 50 40 Q 250 80, 500 40 T 950 40"
+            fill="none"
+            stroke="#17131F"
+            stroke-width="6"
+            stroke-dasharray="12 12"
+          />
+        </svg>
+      </div>
+
+      <div class="steps-grid">
+        {setupSteps.map((step) => (
+          <div class="step-card tp-card">
+            <!-- Step Badge Number -->
+            <div class="step-badge-wrap" style={`background-color: ${step.color};`}>
+              <span class="step-num">{step.step}</span>
+              <span class="step-station-tag">{step.badge}</span>
+            </div>
+
+            <!-- Step Body -->
+            <div class="step-body">
+              <h3 class="step-title">{step.title}</h3>
+              <p class="step-desc">{step.description}</p>
+
+              <div class="step-tips">
+                <span class="tip-icon">💡</span>
+                <p>{step.tips}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Journey Footer CTA -->
+    <div class="journey-cta">
+      <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange journey-btn">
+        <span>立即开启第一站：注册账号</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .journey-section {
+    background-color: var(--c-grass-green);
+    padding: 5.5rem 0;
+    border-bottom: 4px solid var(--c-dark);
+    color: var(--c-dark);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: var(--c-yellow);
+    color: var(--c-dark);
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    font-weight: 900;
+    font-size: 0.85rem;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    text-shadow: 3px 3px 0px var(--c-dark);
+  }
+
+  .section-desc {
+    font-size: 1.15rem;
+    color: #f1ffe6;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  /* Journey Track */
+  .journey-track {
+    position: relative;
+    margin-bottom: 3.5rem;
+  }
+
+  .route-line-svg {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    pointer-events: none;
+    z-index: 1;
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .route-line-svg {
+      display: block;
+    }
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .step-card {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border: 3.5px solid var(--c-dark);
+  }
+
+  .step-badge-wrap {
+    padding: 1.25rem 1.25rem;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--c-dark);
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--c-yellow);
+    text-shadow: 2px 2px 0px var(--c-dark);
+  }
+
+  .step-station-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+  }
+
+  .step-body {
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .step-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--c-dark);
+  }
+
+  .step-desc {
+    font-size: 0.92rem;
+    color: #4a4353;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .step-tips {
+    background-color: var(--c-cream);
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1.5px solid rgba(23, 19, 31, 0.15);
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #333;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .tip-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .journey-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .journey-btn {
+    font-size: 1.15rem;
+    padding: 1rem 2.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

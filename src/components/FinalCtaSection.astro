@@ -1,0 +1,180 @@
+---
+import { siteConfig } from '../config/site';
+---
+
+<section class="final-cta-section" aria-label="准备加入 XSUS">
+  <!-- Floating background stickers -->
+  <div class="cta-floating-bg" aria-hidden="true">
+    <div class="sticker-star animate-float-1">⭐</div>
+    <div class="sticker-rocket animate-float-2">🚀</div>
+    <div class="sticker-bolt animate-float-3">⚡</div>
+  </div>
+
+  <div class="container-custom">
+    <div class="final-cta-box tp-card">
+      <div class="cta-inner-content">
+        <span class="final-badge">🎉 READY TO BOARD?</span>
+        <h2 class="final-title">准备好进入 XSUS 了吗？</h2>
+        <p class="final-subtitle">
+          选择套餐，获取订阅，然后开始连接。只需 30 秒，畅享全球高速自由网络！
+        </p>
+        
+        <div class="final-btn-wrap">
+          <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange final-btn">
+            <span>立即加入 XSUS</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </a>
+          <a href="#pricing" class="tp-btn tp-btn-purple final-secondary-btn">
+            <span>对比套餐详情</span>
+          </a>
+        </div>
+
+        <div class="final-perks">
+          <span class="perk-item">✓ 自动下发订阅</span>
+          <span class="perk-item">✓ 覆盖多国线路</span>
+          <span class="perk-item">✓ Telegram 在线支持</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta-section {
+    background-color: var(--c-yellow);
+    padding: 6rem 0;
+    border-bottom: 4px solid var(--c-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-floating-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .sticker-star {
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    font-size: 2.5rem;
+  }
+
+  .sticker-rocket {
+    position: absolute;
+    bottom: 15%;
+    right: 8%;
+    font-size: 3rem;
+  }
+
+  .sticker-bolt {
+    position: absolute;
+    top: 20%;
+    right: 12%;
+    font-size: 2.5rem;
+  }
+
+  .final-cta-box {
+    background-color: var(--c-deep-purple);
+    color: #ffffff;
+    border: 4px solid var(--c-dark);
+    border-radius: 28px;
+    padding: 4.5rem 2rem;
+    text-align: center;
+    box-shadow: 10px 10px 0px var(--c-dark);
+    position: relative;
+    z-index: 10;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .cta-inner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .final-badge {
+    background-color: var(--c-orange);
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+    letter-spacing: 0.5px;
+  }
+
+  .final-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 900;
+    color: var(--c-yellow);
+    text-shadow: 4px 4px 0px var(--c-dark);
+    line-height: 1.1;
+  }
+
+  .final-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    color: #ffffff;
+    max-width: 640px;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .final-btn-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .final-btn {
+    font-size: 1.35rem;
+    padding: 1.15rem 2.8rem;
+    box-shadow: 6px 6px 0px var(--c-dark);
+  }
+
+  .final-secondary-btn {
+    font-size: 1.15rem;
+    padding: 1.1rem 2rem;
+  }
+
+  .final-perks {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--c-yellow);
+  }
+
+  @media (max-width: 640px) {
+    .final-cta-box {
+      padding: 3rem 1.25rem;
+    }
+    .final-btn {
+      width: 100%;
+      font-size: 1.2rem;
+      padding: 1rem;
+    }
+    .final-secondary-btn {
+      width: 100%;
+    }
+    .cta-floating-bg {
+      display: none;
+    }
+  }
+</style>

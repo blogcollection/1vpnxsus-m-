@@ -1,0 +1,279 @@
+---
+import { siteConfig } from '../config/site';
+import { footerTopicLinks } from '../data/footerKeywords';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container-custom">
+    <!-- Main Footer Grid -->
+    <div class="footer-main-grid">
+      <!-- Column 1: Brand Info -->
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo">
+          <span class="logo-text">{siteConfig.siteName}</span>
+          <span class="logo-badge">{siteConfig.siteSubtitle}</span>
+        </a>
+        <p class="footer-brand-desc">
+          XSUS 致力于为用户提供高速、稳定、高性价比的全球网络加速节点服务。覆盖亚太及欧美核心骨干专线，适配主流客户端。
+        </p>
+        <div class="footer-domain-badge">
+          <span>官方域名：</span>
+          <strong>{siteConfig.domain}</strong>
+        </div>
+        <div class="footer-community">
+          <a href={siteConfig.telegramUrl} target="_blank" rel="noopener noreferrer" class="tp-btn tp-btn-white footer-tg-btn">
+            <span>✈️ Telegram 官方交流群</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Columns 2-5: Topic & Semantic Keyword Navigation -->
+      {footerTopicLinks.map((group) => (
+        <div class="footer-nav-col">
+          <h4 class="nav-col-title">{group.category}</h4>
+          <ul class="footer-link-list">
+            {group.items.map((link) => (
+              <li>
+                <a href={link.href} class="footer-link">
+                  {link.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Keyword Topic Cloud (Natural SEO Internal Topic Clusters) -->
+    <div class="footer-topic-cloud">
+      <span class="cloud-title">热门搜索与导航索引：</span>
+      <div class="cloud-tags">
+        <a href="/" class="cloud-tag">XSUS</a>
+        <a href="/" class="cloud-tag">XSUS机场</a>
+        <a href="/" class="cloud-tag">XSUS官网</a>
+        <a href="#pricing" class="cloud-tag">机场推荐</a>
+        <a href="/nodes/" class="cloud-tag">机场节点</a>
+        <a href="#pricing" class="cloud-tag">机场订阅</a>
+        <a href="/clash/" class="cloud-tag">Clash机场</a>
+        <a href="/clash/" class="cloud-tag">Clash节点</a>
+        <a href="/clash/" class="cloud-tag">Clash订阅</a>
+        <a href="#pricing" class="cloud-tag">VPN推荐</a>
+        <a href="#pricing" class="cloud-tag">科学上网</a>
+        <a href="#pricing" class="cloud-tag">翻墙工具</a>
+        <a href="/shadowrocket/" class="cloud-tag">Shadowrocket</a>
+        <a href="/guide/" class="cloud-tag">V2Ray</a>
+        <a href="/guide/" class="cloud-tag">Trojan</a>
+        <a href="/nodes/#hk" class="cloud-tag">香港节点</a>
+        <a href="/nodes/#jp" class="cloud-tag">日本节点</a>
+        <a href="/nodes/#tw" class="cloud-tag">台湾节点</a>
+        <a href="/nodes/#sg" class="cloud-tag">新加坡节点</a>
+        <a href="/nodes/#us" class="cloud-tag">美国节点</a>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Compliance -->
+    <div class="footer-bottom">
+      <div class="bottom-disclaimer">
+        <p>
+          免责声明：本站服务仅限用于学术科研、跨境电商、合法海外流媒体及国际商务交流。请严格遵守当地法律法规，严禁用于任何违法违规用途。
+        </p>
+      </div>
+      <div class="bottom-copyright">
+        <p>© {currentYear} {siteConfig.siteName} ({siteConfig.domain}). All rights reserved.</p>
+        <p class="theme-signature">⚡ Theme-Park Inspired Fast Network Hub</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--c-dark);
+    color: #ffffff;
+    padding: 5rem 0 2.5rem;
+    border-top: 4px solid var(--c-yellow);
+  }
+
+  .footer-main-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  /* Brand Col */
+  .footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--c-yellow);
+    line-height: 1;
+  }
+
+  .logo-badge {
+    background-color: var(--c-orange);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    border: 1.5px solid #000;
+  }
+
+  .footer-brand-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #b5aebf;
+  }
+
+  .footer-domain-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.4rem 0.85rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.85rem;
+    width: fit-content;
+  }
+
+  .footer-domain-badge strong {
+    color: var(--c-yellow);
+  }
+
+  .footer-tg-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Nav Cols */
+  .nav-col-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--c-yellow);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-link-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-link {
+    color: #d1cbdc;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: color 0.15s ease, transform 0.15s ease;
+    display: inline-block;
+  }
+
+  .footer-link:hover {
+    color: var(--c-orange);
+    transform: translateX(3px);
+  }
+
+  /* Topic Cloud */
+  .footer-topic-cloud {
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .cloud-title {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--c-yellow);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  .cloud-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .cloud-tag {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #9f96ad;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+  }
+
+  .cloud-tag:hover {
+    color: #ffffff;
+    background-color: var(--c-bright-purple);
+  }
+
+  /* Bottom */
+  .footer-bottom {
+    border-top: 1.5px solid rgba(255, 255, 255, 0.12);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: #8c839c;
+  }
+
+  .bottom-disclaimer {
+    line-height: 1.5;
+  }
+
+  .bottom-copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+  .theme-signature {
+    color: var(--c-orange);
+  }
+
+  @media (max-width: 1024px) {
+    .footer-main-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .footer-brand-col {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-main-grid {
+      grid-template-columns: 1fr;
+    }
+    .bottom-copyright {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AnnouncementBar from '../../components/AnnouncementBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { siteConfig } from '../../config/site';
+---
+
+<Layout
+  title="Shadowrocket小火箭配置教程与iOS订阅导入 - XSUS官网"
+  description="iPhone / iPad 苹果设备使用 Shadowrocket (小火箭) 搭配 XSUS 机场订阅的完整配置教程，支持扫码导入与自动更新订阅。"
+  canonicalPath="/shadowrocket/"
+>
+  <AnnouncementBar />
+  <Header />
+
+  <main class="page-main">
+    <div class="container-custom">
+      <nav class="breadcrumb-nav" aria-label="面包屑导航">
+        <a href="/">首页</a>
+        <span class="bc-sep">/</span>
+        <a href="/guide/">使用教程</a>
+        <span class="bc-sep">/</span>
+        <span class="bc-current">Shadowrocket 配置指南</span>
+      </nav>
+
+      <div class="page-hero tp-card">
+        <span class="page-badge">🍎 iOS / 小火箭专区</span>
+        <h1 class="page-title">Shadowrocket (小火箭) iOS 快速配置</h1>
+        <p class="page-desc">
+          苹果 iPhone / iPad 最推荐使用的经典网络分流工具，秒级扫码同步所有亚太与欧美线路。
+        </p>
+      </div>
+
+      <div class="tutorial-body tp-card">
+        <h2>🚀 小火箭一秒导入指南</h2>
+
+        <div class="step-guide">
+          <div class="guide-num">1</div>
+          <div class="guide-text">
+            <h3>准备 Shadowrocket 应用</h3>
+            <p>
+              使用非大陆美区/港区 Apple ID 登录 App Store 下载 Shadowrocket（官方图标为浅蓝色底白色火箭）。
+            </p>
+          </div>
+        </div>
+
+        <div class="step-guide">
+          <div class="guide-num">2</div>
+          <div class="guide-text">
+            <h3>扫码或一键导入订阅</h3>
+            <p>
+              用 Safari 浏览器登录 XSUS 官网用户中心，点击「一键导入小火箭」，系统会自动唤起 App 并完成全部节点下载；也可以点击右上角扫码扫描订阅二维码。
+            </p>
+          </div>
+        </div>
+
+        <div class="step-guide">
+          <div class="guide-num">3</div>
+          <div class="guide-text">
+            <h3>开启分流连接</h3>
+            <p>
+              在小火箭首页底部确保「全局路由」选择为「配置/Config」（即分流模式），勾选一个延迟最低的香港或日本节点，打开最上方的连接开关即可。
+            </p>
+          </div>
+        </div>
+
+        <div class="tutorial-cta">
+          <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange">
+            立即获取 XSUS 专属小火箭订阅
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-main {
+    background-color: var(--c-cream);
+    padding: 3rem 0 5rem;
+    min-height: 80vh;
+  }
+
+  .breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+
+  .breadcrumb-nav a {
+    color: var(--c-bright-purple);
+  }
+
+  .bc-sep {
+    color: #999;
+  }
+
+  .page-hero {
+    background-color: var(--c-orange);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .page-badge {
+    display: inline-block;
+    background-color: var(--c-yellow);
+    color: var(--c-dark);
+    font-weight: 900;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px var(--c-dark);
+  }
+
+  .page-desc {
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto;
+    color: #fff4e5;
+    line-height: 1.6;
+  }
+
+  .tutorial-body {
+    padding: 2.5rem;
+  }
+
+  .tutorial-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: var(--c-dark);
+    border-bottom: 3px solid var(--c-dark);
+    padding-bottom: 0.75rem;
+  }
+
+  .step-guide {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .guide-num {
+    width: 44px;
+    height: 44px;
+    background-color: var(--c-deep-purple);
+    color: var(--c-yellow);
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    flex-shrink: 0;
+  }
+
+  .guide-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--c-dark);
+  }
+
+  .guide-text p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .tutorial-cta {
+    text-align: center;
+    padding-top: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .step-guide {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .tutorial-body {
+      padding: 1.5rem;
+    }
+  }
+</style>

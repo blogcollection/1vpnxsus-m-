@@ -1,0 +1,327 @@
+---
+import { siteConfig } from '../config/site';
+
+const navItems = [
+  { label: '套餐价格', href: '#pricing' },
+  { label: '节点地区', href: '#nodes' },
+  { label: '为什么选择 XSUS', href: '#features' },
+  { label: '使用教程', href: '#journey' },
+  { label: '常见问题', href: '#faq' },
+];
+---
+
+<header class="site-header" role="banner">
+  <div class="header-container">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-logo" aria-label="XSUS 官网首页">
+      <div class="logo-mark">
+        <span class="logo-text">XSUS</span>
+        <span class="logo-tag">十八线小机场</span>
+      </div>
+      <div class="logo-badge" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav" aria-label="主要导航">
+      <ul class="nav-list">
+        {navItems.map((item) => (
+          <li>
+            <a href={item.href} class="nav-link">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange nav-cta">
+        <span>立即加入</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-toggle" class="mobile-toggle" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-nav-menu">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <ul class="mobile-nav-list">
+        {navItems.map((item) => (
+          <li>
+            <a href={item.href} class="mobile-nav-link">
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="mobile-menu-cta">
+        <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange w-full text-center">
+          立即加入 XSUS
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--c-deep-purple);
+    border-bottom: 3px solid var(--c-dark);
+    height: 96px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .header-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  /* Logo */
+  .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    user-select: none;
+  }
+
+  .logo-mark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--c-yellow);
+    letter-spacing: 1px;
+    text-shadow: 3px 3px 0px var(--c-dark);
+    line-height: 0.9;
+  }
+
+  .logo-tag {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    background-color: var(--c-orange);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1.5px solid var(--c-dark);
+    margin-top: 4px;
+    box-shadow: 2px 2px 0px var(--c-dark);
+    display: inline-block;
+  }
+
+  .logo-badge {
+    background-color: var(--c-grass-green);
+    color: var(--c-yellow);
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Desktop Nav */
+  .desktop-nav {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .nav-link {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    transition: color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--c-yellow);
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+  }
+
+  /* CTA */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-cta {
+    font-size: 1.05rem;
+    padding: 0.75rem 1.6rem;
+  }
+
+  /* Mobile Hamburger */
+  .mobile-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 44px;
+    height: 44px;
+    background: var(--c-yellow);
+    border: 2px solid var(--c-dark);
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--c-dark);
+  }
+
+  .hamburger-bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--c-dark);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    position: absolute;
+    top: 96px;
+    left: 0;
+    width: 100%;
+    background-color: var(--c-deep-purple);
+    border-bottom: 4px solid var(--c-dark);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .mobile-menu.is-open {
+    max-height: 450px;
+  }
+
+  .mobile-menu-inner {
+    padding: 1.5rem 1.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .mobile-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 0.75rem 1rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .mobile-nav-link:hover {
+    background-color: var(--c-bright-purple);
+    color: var(--c-yellow);
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  @media (min-width: 980px) {
+    .desktop-nav {
+      display: block;
+    }
+    .mobile-toggle {
+      display: none;
+    }
+    .mobile-menu {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .site-header {
+      height: 84px;
+    }
+    .logo-text {
+      font-size: 1.8rem;
+    }
+    .nav-cta {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-nav-menu');
+
+  if (toggleBtn && mobileMenu) {
+    toggleBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('is-open');
+      if (isOpen) {
+        mobileMenu.classList.remove('is-open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        mobileMenu.classList.add('is-open');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Close when clicking link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>

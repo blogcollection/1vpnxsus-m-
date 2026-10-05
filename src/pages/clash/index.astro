@@ -1,0 +1,240 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AnnouncementBar from '../../components/AnnouncementBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { siteConfig } from '../../config/site';
+---
+
+<Layout
+  title="Clash机场配置教程与Clash Verge订阅导入指南 - XSUS官网"
+  description="XSUS 适配 Clash Verge / Clash Meta / Mihomo 电脑与安卓客户端。提供一键导入 Clash 订阅、智能分流规则配置与故障解决排查指南。"
+  canonicalPath="/clash/"
+>
+  <AnnouncementBar />
+  <Header />
+
+  <main class="page-main">
+    <div class="container-custom">
+      <nav class="breadcrumb-nav" aria-label="面包屑导航">
+        <a href="/">首页</a>
+        <span class="bc-sep">/</span>
+        <a href="/guide/">使用教程</a>
+        <span class="bc-sep">/</span>
+        <span class="bc-current">Clash 配置指南</span>
+      </nav>
+
+      <div class="page-hero tp-card">
+        <span class="page-badge">💻 电脑端 / Clash 专区</span>
+        <h1 class="page-title">Clash 机场配置与订阅导入指南</h1>
+        <p class="page-desc">
+          推荐使用现代开源跨平台的 <strong>Clash Verge (Rev)</strong> 或 <strong>Clash Meta (Mihomo)</strong>，享受快速、轻量且自动规则分流的上网体验。
+        </p>
+      </div>
+
+      <div class="tutorial-body tp-card">
+        <h2>⚡ Clash Verge 极速配置 3 步走</h2>
+
+        <div class="step-guide">
+          <div class="guide-num">1</div>
+          <div class="guide-text">
+            <h3>第一步：下载并安装 Clash Verge</h3>
+            <p>
+              前往开源社区或在 XSUS 用户控制台下载对应系统的安装包（Windows 推荐 .exe 安装版，macOS 推荐 Intel 或 Apple Silicon 专版）。
+            </p>
+          </div>
+        </div>
+
+        <div class="step-guide">
+          <div class="guide-num">2</div>
+          <div class="guide-text">
+            <h3>第二步：一键导入 XSUS 订阅</h3>
+            <p>
+              登录 XSUS 控制台，进入「仪表盘」点击「一键导入 Clash」；或复制「通用订阅链接」，打开 Clash Verge 左侧「订阅/Profiles」，粘贴 URL 并点击「导入/Save」。
+            </p>
+          </div>
+        </div>
+
+        <div class="step-guide">
+          <div class="guide-num">3</div>
+          <div class="guide-text">
+            <h3>第三步：选择节点并开启系统代理</h3>
+            <p>
+              在「代理/Proxies」页面选择香港、日本或美国节点，将出站规则设置为「规则/Rule」模式，在软件设置中打开「系统代理/System Proxy」开关即可。
+            </p>
+          </div>
+        </div>
+
+        <div class="guide-faq-box">
+          <h3>💡 Clash 常见问题小贴士</h3>
+          <ul>
+            <li><strong>测速全部超时？</strong> 请检查是否打开了「系统代理」，并确认电脑系统时间是否已自动同步网络时间。</li>
+            <li><strong>国内网页打不开？</strong> 确保运行模式为「规则/Rule」而非「全局/Global」，国内流量将自动直连。</li>
+          </ul>
+        </div>
+
+        <div class="tutorial-cta">
+          <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange">
+            立即获取 XSUS 专属 Clash 订阅
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-main {
+    background-color: var(--c-cream);
+    padding: 3rem 0 5rem;
+    min-height: 80vh;
+  }
+
+  .breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+
+  .breadcrumb-nav a {
+    color: var(--c-bright-purple);
+  }
+
+  .bc-sep {
+    color: #999;
+  }
+
+  .page-hero {
+    background-color: var(--c-bright-purple);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .page-badge {
+    display: inline-block;
+    background-color: var(--c-yellow);
+    color: var(--c-dark);
+    font-weight: 900;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px var(--c-dark);
+  }
+
+  .page-desc {
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto;
+    color: #f6eeff;
+    line-height: 1.6;
+  }
+
+  .tutorial-body {
+    padding: 2.5rem;
+  }
+
+  .tutorial-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: var(--c-dark);
+    border-bottom: 3px solid var(--c-dark);
+    padding-bottom: 0.75rem;
+  }
+
+  .step-guide {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .guide-num {
+    width: 44px;
+    height: 44px;
+    background-color: var(--c-orange);
+    color: #ffffff;
+    border-radius: 50%;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    flex-shrink: 0;
+  }
+
+  .guide-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--c-dark);
+  }
+
+  .guide-text p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .guide-faq-box {
+    background-color: var(--c-cream);
+    border: 2px solid var(--c-dark);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .guide-faq-box h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin-bottom: 0.75rem;
+  }
+
+  .guide-faq-box ul {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    color: #444;
+  }
+
+  .tutorial-cta {
+    text-align: center;
+    padding-top: 1.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .step-guide {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .tutorial-body {
+      padding: 1.5rem;
+    }
+  }
+</style>

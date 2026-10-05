@@ -1,0 +1,239 @@
+:root {
+  --c-deep-purple: #4B2585;
+  --c-bright-purple: #6B36B4;
+  --c-orange: #F47A00;
+  --c-yellow: #FFD629;
+  --c-grass-green: #4F9E00;
+  --c-dark-green: #006B2C;
+  --c-cream: #FFF8EB;
+  --c-dark: #17131F;
+  --c-white: #FFFFFF;
+  --c-border: #17131F;
+  
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  --font-display: "Arial Black", Impact, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-main);
+  background-color: var(--c-cream);
+  color: var(--c-dark);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 3px solid var(--c-yellow);
+  outline-offset: 3px;
+}
+
+/* Theme Park Chunky Button Styles */
+.tp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 9999px;
+  border: 3px solid var(--c-dark);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.tp-btn-orange {
+  background-color: var(--c-orange);
+  color: #ffffff;
+  box-shadow: 4px 4px 0px var(--c-dark);
+}
+.tp-btn-orange:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--c-dark);
+  background-color: #ff8a14;
+}
+.tp-btn-orange:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--c-dark);
+}
+
+.tp-btn-yellow {
+  background-color: var(--c-yellow);
+  color: var(--c-dark);
+  box-shadow: 4px 4px 0px var(--c-dark);
+}
+.tp-btn-yellow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--c-dark);
+  background-color: #ffe054;
+}
+.tp-btn-yellow:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--c-dark);
+}
+
+.tp-btn-purple {
+  background-color: var(--c-bright-purple);
+  color: #ffffff;
+  box-shadow: 4px 4px 0px var(--c-dark);
+}
+.tp-btn-purple:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--c-dark);
+  background-color: #7b42cb;
+}
+.tp-btn-purple:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--c-dark);
+}
+
+.tp-btn-white {
+  background-color: #ffffff;
+  color: var(--c-dark);
+  box-shadow: 4px 4px 0px var(--c-dark);
+}
+.tp-btn-white:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--c-dark);
+  background-color: #fdfdfd;
+}
+
+/* Chunky Theme Park Cards */
+.tp-card {
+  background: #ffffff;
+  border: 3px solid var(--c-dark);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0px var(--c-dark);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.tp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 8px 8px 0px var(--c-dark);
+}
+
+/* Badge Tags */
+.tp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border-radius: 9999px;
+  border: 2px solid var(--c-dark);
+  text-transform: uppercase;
+}
+
+/* Floating Animations */
+@keyframes floatUpAndDown {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes floatSlight {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-float-1 {
+  animation: floatUpAndDown 4s ease-in-out infinite;
+}
+.animate-float-2 {
+  animation: floatSlight 5s ease-in-out infinite 1s;
+}
+.animate-float-3 {
+  animation: floatUpAndDown 6s ease-in-out infinite 2s;
+}
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Container */
+.container-custom {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

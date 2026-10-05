@@ -1,0 +1,273 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AnnouncementBar from '../../components/AnnouncementBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { setupSteps } from '../../data/steps';
+import { siteConfig } from '../../config/site';
+---
+
+<Layout
+  title="XSUS使用教程与新手配置指南 - XSUS官网"
+  description="XSUS（十八线小机场）全平台使用教程与客户端配置指南，手把手教你如何导入订阅、开启规则分流以及解决连接问题。"
+  canonicalPath="/guide/"
+>
+  <AnnouncementBar />
+  <Header />
+
+  <main class="page-main">
+    <div class="container-custom">
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb-nav" aria-label="面包屑导航">
+        <a href="/">首页</a>
+        <span class="bc-sep">/</span>
+        <span class="bc-current">使用教程</span>
+      </nav>
+
+      <div class="page-hero tp-card">
+        <span class="page-badge">📚 教程中心</span>
+        <h1 class="page-title">XSUS 全平台使用教程与配置指南</h1>
+        <p class="page-desc">
+          无需复杂的网络技术背景，按照以下分步指引，1~3 分钟内即可在 Windows、Mac、iPhone、Android 等设备上配置完毕。
+        </p>
+      </div>
+
+      <!-- Quick client jump cards -->
+      <div class="quick-client-grid">
+        <a href="/clash/" class="tp-card client-jump-card" style="border-top: 5px solid #4B2585;">
+          <h3>⚡ Clash Verge 教程</h3>
+          <p>适用 Windows / macOS / Linux 电脑端一键导入</p>
+          <span class="jump-link">查看电脑配置 &rarr;</span>
+        </a>
+        <a href="/shadowrocket/" class="tp-card client-jump-card" style="border-top: 5px solid #F47A00;">
+          <h3>🚀 Shadowrocket 教程</h3>
+          <p>适用 iPhone / iPad 苹果设备扫码或一键配置</p>
+          <span class="jump-link">查看 iOS 配置 &rarr;</span>
+        </a>
+        <a href="/faq/" class="tp-card client-jump-card" style="border-top: 5px solid #4F9E00;">
+          <h3>❓ 常见连接问题</h3>
+          <p>解答节点超时、订阅更新失败等常见故障排查</p>
+          <span class="jump-link">查看 FAQ 问答 &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Step by step tutorial -->
+      <div class="tutorial-body tp-card">
+        <h2>🚀 从注册到连接的完整 4 步走</h2>
+        
+        {setupSteps.map((step) => (
+          <div class="tutorial-step-block">
+            <div class="step-num-pill" style={`background-color: ${step.color};`}>
+              {step.step}
+            </div>
+            <div class="step-content">
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+              <div class="step-note">
+                <strong>操作要点：</strong> {step.tips}
+              </div>
+            </div>
+          </div>
+        ))}
+
+        <div class="tutorial-cta">
+          <h3>准备好开始了吗？</h3>
+          <p>获取属于你的专属高速订阅链接</p>
+          <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange">
+            立即加入 XSUS
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-main {
+    background-color: var(--c-cream);
+    padding: 3rem 0 5rem;
+    min-height: 80vh;
+  }
+
+  .breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+
+  .breadcrumb-nav a {
+    color: var(--c-bright-purple);
+  }
+
+  .bc-sep {
+    color: #999;
+  }
+
+  .page-hero {
+    background-color: var(--c-deep-purple);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .page-badge {
+    display: inline-block;
+    background-color: var(--c-yellow);
+    color: var(--c-dark);
+    font-weight: 900;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--c-yellow);
+    text-shadow: 2px 2px 0px var(--c-dark);
+  }
+
+  .page-desc {
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto;
+    color: #f2e9ff;
+    line-height: 1.6;
+  }
+
+  .quick-client-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .client-jump-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .client-jump-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--c-dark);
+  }
+
+  .client-jump-card p {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1;
+  }
+
+  .jump-link {
+    font-weight: 800;
+    color: var(--c-orange);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+
+  .tutorial-body {
+    padding: 2.5rem;
+  }
+
+  .tutorial-body h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: var(--c-dark);
+    border-bottom: 3px solid var(--c-dark);
+    padding-bottom: 0.75rem;
+  }
+
+  .tutorial-step-block {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1.5px dashed rgba(23, 19, 31, 0.15);
+  }
+
+  .step-num-pill {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    flex-shrink: 0;
+  }
+
+  .step-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    color: var(--c-dark);
+  }
+
+  .step-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-note {
+    background-color: var(--c-cream);
+    padding: 0.65rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+
+  .tutorial-cta {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .tutorial-cta h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 900;
+  }
+
+  @media (max-width: 768px) {
+    .quick-client-grid {
+      grid-template-columns: 1fr;
+    }
+    .tutorial-step-block {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .tutorial-body {
+      padding: 1.5rem;
+    }
+  }
+</style>

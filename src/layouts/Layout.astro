@@ -1,0 +1,95 @@
+---
+import { siteConfig } from '../config/site';
+import { faqList } from '../data/faq';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  isFaqPage?: boolean;
+}
+
+const {
+  title = siteConfig.seoTitle,
+  description = siteConfig.seoDescription,
+  canonicalPath = '',
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, siteConfig.siteUrl).href;
+const ogImageUrl = `${siteConfig.siteUrl}/og-image.png`;
+
+// Organization Schema
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteConfig.siteName,
+  alternateName: siteConfig.siteSubtitle,
+  url: siteConfig.siteUrl,
+  logo: `${siteConfig.siteUrl}/favicon.svg`,
+  description: siteConfig.seoDescription,
+};
+
+// WebSite Schema
+const webSiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: `${siteConfig.siteName} 官网`,
+  url: siteConfig.siteUrl,
+  inLanguage: 'zh-CN',
+  description: siteConfig.seoDescription,
+};
+
+// FAQPage Schema (Matches visible text on page exactly)
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqList.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="XSUS, XSUS官网, XSUS机场, 机场推荐, Clash机场, Shadowrocket, V2Ray, 科学上网, 香港节点, 日本节点, 台湾节点, 新加坡节点, 美国节点" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#4B2585" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={siteConfig.siteName} />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

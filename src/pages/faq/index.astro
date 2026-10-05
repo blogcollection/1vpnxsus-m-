@@ -1,0 +1,239 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AnnouncementBar from '../../components/AnnouncementBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { faqList } from '../../data/faq';
+import { siteConfig } from '../../config/site';
+---
+
+<Layout
+  title="XSUS常见问题FAQ与帮助中心 - XSUS官网"
+  description="XSUS（十八线小机场）常见问答汇总：包含机场与VPN区别、ChatGPT/Claude分流配置、Clash与Shadowrocket订阅导入等实用知识。"
+  canonicalPath="/faq/"
+>
+  <AnnouncementBar />
+  <Header />
+
+  <main class="page-main">
+    <div class="container-custom">
+      <nav class="breadcrumb-nav" aria-label="面包屑导航">
+        <a href="/">首页</a>
+        <span class="bc-sep">/</span>
+        <span class="bc-current">常见问题</span>
+      </nav>
+
+      <div class="page-hero tp-card">
+        <span class="page-badge">❓ FAQ HUB</span>
+        <h1 class="page-title">XSUS 常见问题与知识库</h1>
+        <p class="page-desc">
+          汇集所有关于机场基础概念、客户端配置、节点选择与账户订阅管理的权威解答。
+        </p>
+      </div>
+
+      <!-- FAQ Accordion List -->
+      <div class="faq-list tp-card">
+        {faqList.map((item, index) => (
+          <details class="faq-item" open={index === 0}>
+            <summary class="faq-summary">
+              <span class="faq-badge">Q{index + 1}</span>
+              <h2 class="faq-q-text">{item.question}</h2>
+              <span class="faq-cat-tag">{item.category}</span>
+            </summary>
+            <div class="faq-a-body">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <div class="faq-contact-box tp-card">
+        <h2>仍有其他疑问？</h2>
+        <p>我们的 Telegram 官方频道与工单支持团队随时为你提供帮助。</p>
+        <div class="faq-btn-group">
+          <a href={siteConfig.telegramUrl} target="_blank" rel="noopener noreferrer" class="tp-btn tp-btn-purple">
+            加入 Telegram 交流群
+          </a>
+          <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange">
+            立即开通 XSUS 服务
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-main {
+    background-color: var(--c-cream);
+    padding: 3rem 0 5rem;
+    min-height: 80vh;
+  }
+
+  .breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+
+  .breadcrumb-nav a {
+    color: var(--c-bright-purple);
+  }
+
+  .bc-sep {
+    color: #999;
+  }
+
+  .page-hero {
+    background-color: var(--c-deep-purple);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .page-badge {
+    display: inline-block;
+    background-color: var(--c-yellow);
+    color: var(--c-dark);
+    font-weight: 900;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--c-yellow);
+    text-shadow: 2px 2px 0px var(--c-dark);
+  }
+
+  .page-desc {
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto;
+    color: #f2e9ff;
+    line-height: 1.6;
+  }
+
+  .faq-list {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .faq-item {
+    background: #ffffff;
+    border: 2px solid var(--c-dark);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .faq-summary {
+    list-style: none;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    background: #ffffff;
+    transition: background-color 0.15s ease;
+  }
+
+  .faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-summary:hover {
+    background-color: #faf6ff;
+  }
+
+  .faq-badge {
+    background-color: var(--c-bright-purple);
+    color: var(--c-yellow);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 900;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    border: 1.5px solid var(--c-dark);
+    flex-shrink: 0;
+  }
+
+  .faq-q-text {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--c-dark);
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  .faq-cat-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    background: var(--c-cream);
+    color: #666;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  .faq-a-body {
+    padding: 0 1.5rem 1.25rem 3.5rem;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #444;
+  }
+
+  .faq-contact-box {
+    background-color: var(--c-yellow);
+    padding: 3rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .faq-contact-box h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 900;
+  }
+
+  .faq-btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .faq-list {
+      padding: 1.25rem;
+    }
+    .faq-summary {
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+    .faq-a-body {
+      padding: 0 1rem 1rem;
+    }
+  }
+</style>

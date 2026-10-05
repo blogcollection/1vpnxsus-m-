@@ -1,0 +1,169 @@
+---
+import { useCaseItems } from '../data/usecases';
+---
+
+<section id="usecases" class="usecases-section" aria-labelledby="usecases-title">
+  <div class="container-custom">
+    <!-- Header -->
+    <div class="section-header">
+      <div class="section-badge">
+        <span>🚀 DAILY USE CASES</span>
+      </div>
+      <h2 id="usecases-title" class="section-title">XSUS 可以拿来做什么？</h2>
+      <p class="section-desc">
+        真实可靠的节点加速体验，专为中文用户的日常科研、影音娱乐与生产力协同设计。
+      </p>
+    </div>
+
+    <!-- 4 Scenes Grid -->
+    <div class="usecases-grid">
+      {useCaseItems.map((scene) => (
+        <div class="scene-card tp-card" style={`background-color: ${scene.bgColor}; color: ${scene.textColor};`}>
+          <!-- Scene Badge -->
+          <div class="scene-badge-row">
+            <span class="scene-pill" style={`background-color: ${scene.accentColor}; color: ${scene.accentColor === '#FFF8EB' || scene.accentColor === '#FFD629' ? '#17131F' : '#FFFFFF'};`}>
+              {scene.badge}
+            </span>
+          </div>
+
+          <!-- Scene Body -->
+          <div class="scene-body">
+            <h3 class="scene-title">{scene.title}</h3>
+            <p class="scene-sub">{scene.subtitle}</p>
+            <p class="scene-desc">{scene.description}</p>
+          </div>
+
+          <!-- Tags -->
+          <div class="scene-tags">
+            {scene.tags.map((tag) => (
+              <span class="tag-badge">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .usecases-section {
+    background-color: var(--c-deep-purple);
+    padding: 5.5rem 0;
+    border-bottom: 4px solid var(--c-dark);
+    color: #ffffff;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: var(--c-yellow);
+    color: var(--c-dark);
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    font-weight: 900;
+    font-size: 0.85rem;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    text-shadow: 3px 3px 0px var(--c-dark);
+  }
+
+  .section-desc {
+    font-size: 1.15rem;
+    color: #eedcff;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* Grid */
+  .usecases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .scene-card {
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+    border: 3.5px solid var(--c-dark);
+  }
+
+  .scene-badge-row {
+    margin-bottom: 1.25rem;
+  }
+
+  .scene-pill {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 900;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    letter-spacing: 0.5px;
+  }
+
+  .scene-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .scene-title {
+    font-family: var(--font-display);
+    font-size: 1.85rem;
+    font-weight: 900;
+    line-height: 1.15;
+  }
+
+  .scene-sub {
+    font-size: 0.95rem;
+    font-weight: 800;
+    opacity: 0.9;
+  }
+
+  .scene-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.92;
+  }
+
+  .scene-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag-badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 900px) {
+    .usecases-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

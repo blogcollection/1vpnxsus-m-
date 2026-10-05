@@ -1,0 +1,577 @@
+---
+import { siteConfig } from '../config/site';
+---
+
+<section class="hero-section" aria-label="XSUS 欢迎首屏">
+  <!-- Ambient Floating Theme Park Elements -->
+  <div class="hero-floating-bg" aria-hidden="true">
+    <!-- Star 1 -->
+    <div class="float-item star-1 animate-float-1">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFD629">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+      </svg>
+    </div>
+    <!-- Star 2 -->
+    <div class="float-item star-2 animate-float-2">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFD629">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+      </svg>
+    </div>
+    <!-- Lightning -->
+    <div class="float-item lightning-1 animate-float-3">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="#F47A00" stroke="#17131F" stroke-width="1.5">
+        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" />
+      </svg>
+    </div>
+    <!-- Paper Plane -->
+    <div class="float-item plane-1 animate-float-2">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="#FFF8EB" stroke="#17131F" stroke-width="2">
+        <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" />
+      </svg>
+    </div>
+    <!-- Cloud -->
+    <div class="float-item cloud-1 animate-float-1">
+      <svg width="48" height="32" viewBox="0 0 24 24" fill="#ffffff" stroke="#17131F" stroke-width="1.5">
+        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+      </svg>
+    </div>
+    <!-- WiFi Badge -->
+    <div class="float-item wifi-badge animate-float-3">
+      <div class="mini-bubble">
+        <span>📶 5G Max</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-container">
+    <!-- Left Column: High Converting Copy & CTAs -->
+    <div class="hero-copy">
+      <div class="hero-tag-wrap">
+        <span class="brand-pill">
+          <span class="pill-dot"></span>
+          XSUS · 十八线小机场
+        </span>
+        <span class="status-pill">🔥 2026 稳定在线</span>
+      </div>
+
+      <h1 class="hero-title">
+        轻松连上世界，<br />
+        <span class="highlight-text">快一点，</span>也简单一点。
+      </h1>
+
+      <p class="hero-subtitle">
+        覆盖香港、台湾、日本、新加坡、美国等常用地区，支持主流代理客户端，适合日常浏览、影音、AI 工具与海外服务。
+      </p>
+
+      <div class="hero-actions">
+        <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange hero-main-cta">
+          <span>立即加入 XSUS</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
+          </svg>
+        </a>
+        <a href="#pricing" class="tp-btn tp-btn-yellow hero-secondary-cta">
+          <span>查看套餐</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="hero-feature-tags">
+        <div class="feature-tag">
+          <span class="tag-icon">⚡</span>
+          <span>快速开始</span>
+        </div>
+        <div class="tag-divider">•</div>
+        <div class="feature-tag">
+          <span class="tag-icon">🌐</span>
+          <span>多地区节点</span>
+        </div>
+        <div class="tag-divider">•</div>
+        <div class="feature-tag">
+          <span class="tag-icon">📱</span>
+          <span>多设备支持</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Theme-Park Orbit Attraction Visual -->
+    <div class="hero-visual" aria-label="XSUS 游乐园轨道网络示意图">
+      <div class="orbit-stage">
+        <!-- Outer Orbit Ring -->
+        <div class="orbit-ring orbit-ring-outer"></div>
+        <div class="orbit-ring orbit-ring-inner"></div>
+
+        <!-- Center Core Planet: XSUS Hub -->
+        <div class="orbit-center-hub">
+          <div class="center-glow"></div>
+          <div class="center-disc">
+            <div class="center-logo-text">XSUS</div>
+            <div class="center-sub">GLOBAL HUB</div>
+            <div class="center-icon">🚀</div>
+          </div>
+        </div>
+
+        <!-- Orbit Planet 1: HK (Top) -->
+        <div class="node-planet planet-hk" style="--angle: 0deg;">
+          <div class="planet-badge">
+            <span class="flag">🇭🇰</span>
+            <span class="name">香港 HK</span>
+            <span class="ping">30ms</span>
+          </div>
+        </div>
+
+        <!-- Orbit Planet 2: TW (Top Right) -->
+        <div class="node-planet planet-tw" style="--angle: 72deg;">
+          <div class="planet-badge">
+            <span class="flag">🇹🇼</span>
+            <span class="name">台湾 TW</span>
+            <span class="ping">45ms</span>
+          </div>
+        </div>
+
+        <!-- Orbit Planet 3: JP (Bottom Right) -->
+        <div class="node-planet planet-jp" style="--angle: 144deg;">
+          <div class="planet-badge">
+            <span class="flag">🇯🇵</span>
+            <span class="name">日本 JP</span>
+            <span class="ping">50ms</span>
+          </div>
+        </div>
+
+        <!-- Orbit Planet 4: SG (Bottom Left) -->
+        <div class="node-planet planet-sg" style="--angle: 216deg;">
+          <div class="planet-badge">
+            <span class="flag">🇸🇬</span>
+            <span class="name">新加坡 SG</span>
+            <span class="ping">65ms</span>
+          </div>
+        </div>
+
+        <!-- Orbit Planet 5: US (Top Left) -->
+        <div class="node-planet planet-us" style="--angle: 288deg;">
+          <div class="planet-badge">
+            <span class="flag">🇺🇸</span>
+            <span class="name">美国 US</span>
+            <span class="ping">140ms</span>
+          </div>
+        </div>
+
+        <!-- Speed Rockets & Particle Badges -->
+        <div class="orbit-speed-tag tag-ai">
+          <span>🤖 AI 优化专线</span>
+        </div>
+        <div class="orbit-speed-tag tag-stream">
+          <span>🎬 4K 影音流畅</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    background-color: var(--c-deep-purple);
+    color: #ffffff;
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 4px solid var(--c-dark);
+    padding: 3.5rem 0;
+  }
+
+  /* Floating Background Elements */
+  .hero-floating-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .float-item {
+    position: absolute;
+    filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.4));
+  }
+
+  .star-1 { top: 8%; left: 6%; }
+  .star-2 { bottom: 12%; left: 45%; }
+  .lightning-1 { top: 15%; right: 48%; }
+  .plane-1 { top: 6%; right: 12%; }
+  .cloud-1 { bottom: 10%; left: 8%; }
+  .wifi-badge { bottom: 14%; right: 10%; }
+
+  .mini-bubble {
+    background: var(--c-grass-green);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+  }
+
+  /* Container */
+  .hero-container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Copy */
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hero-tag-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--c-bright-purple);
+    color: var(--c-yellow);
+    font-weight: 800;
+    font-size: 0.95rem;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+  }
+
+  .pill-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--c-yellow);
+    border-radius: 50%;
+    animation: pulseGlow 1.5s infinite;
+  }
+
+  .status-pill {
+    background-color: var(--c-grass-green);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    text-shadow: 4px 4px 0px var(--c-dark);
+  }
+
+  .highlight-text {
+    color: var(--c-yellow);
+    text-decoration: underline wavy var(--c-orange) 4px;
+    text-underline-offset: 6px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    line-height: 1.65;
+    color: #f3ebff;
+    max-width: 580px;
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-main-cta {
+    font-size: 1.2rem;
+    padding: 1rem 2.2rem;
+  }
+
+  .hero-secondary-cta {
+    font-size: 1.1rem;
+    padding: 0.95rem 1.8rem;
+  }
+
+  /* Feature Tags */
+  .hero-feature-tags {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--c-cream);
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 0.65rem 1.2rem;
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    width: fit-content;
+  }
+
+  .feature-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .tag-icon {
+    font-size: 1.1rem;
+  }
+
+  .tag-divider {
+    color: var(--c-yellow);
+    font-weight: 900;
+  }
+
+  /* Right Visual Orbit System */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .orbit-stage {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px dashed rgba(255, 255, 255, 0.3);
+    pointer-events: none;
+  }
+
+  .orbit-ring-outer {
+    width: 380px;
+    height: 380px;
+    border-color: rgba(255, 214, 41, 0.45);
+  }
+
+  .orbit-ring-inner {
+    width: 240px;
+    height: 240px;
+    border-color: rgba(244, 122, 0, 0.45);
+  }
+
+  /* Center Hub */
+  .orbit-center-hub {
+    position: relative;
+    z-index: 5;
+  }
+
+  .center-glow {
+    position: absolute;
+    inset: -15px;
+    background: radial-gradient(circle, var(--c-orange) 0%, rgba(244, 122, 0, 0) 70%);
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: 0.6;
+    animation: pulseGlow 3s infinite;
+  }
+
+  .center-disc {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    background: var(--c-yellow);
+    color: var(--c-dark);
+    border: 4px solid var(--c-dark);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 6px 6px 0px var(--c-dark);
+  }
+
+  .center-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--c-deep-purple);
+  }
+
+  .center-sub {
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--c-dark);
+    margin-top: 2px;
+  }
+
+  .center-icon {
+    font-size: 1.2rem;
+    margin-top: 2px;
+  }
+
+  /* Orbit Planets */
+  .node-planet {
+    position: absolute;
+    z-index: 6;
+    transition: transform 0.2s ease;
+  }
+
+  .node-planet:hover {
+    transform: scale(1.1);
+  }
+
+  .planet-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #ffffff;
+    color: var(--c-dark);
+    padding: 0.4rem 0.85rem;
+    border-radius: 9999px;
+    border: 2.5px solid var(--c-dark);
+    box-shadow: 4px 4px 0px var(--c-dark);
+    font-weight: 800;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .planet-badge .flag {
+    font-size: 1.1rem;
+  }
+
+  .planet-badge .ping {
+    background-color: var(--c-grass-green);
+    color: #ffffff;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 800;
+  }
+
+  /* Node Coordinates Around Orbit */
+  .planet-hk { top: 0px; left: 50%; transform: translateX(-50%); }
+  .planet-tw { top: 75px; right: 0px; }
+  .planet-jp { bottom: 60px; right: 20px; }
+  .planet-sg { bottom: 60px; left: 20px; }
+  .planet-us { top: 75px; left: 0px; }
+
+  /* Floating Tag Badges */
+  .orbit-speed-tag {
+    position: absolute;
+    z-index: 7;
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+    white-space: nowrap;
+  }
+
+  .tag-ai {
+    top: 25%;
+    right: -10px;
+    background-color: var(--c-orange);
+    color: #ffffff;
+    transform: rotate(6deg);
+  }
+
+  .tag-stream {
+    bottom: 15%;
+    left: -15px;
+    background-color: var(--c-grass-green);
+    color: #ffffff;
+    transform: rotate(-6deg);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 1024px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3.5rem;
+    }
+
+    .hero-copy {
+      align-items: center;
+    }
+
+    .hero-subtitle {
+      margin: 0 auto;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-feature-tags {
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-section {
+      min-height: auto;
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .hero-floating-bg .star-2,
+    .hero-floating-bg .lightning-1,
+    .hero-floating-bg .cloud-1 {
+      display: none; /* Hide 60% floating decorations on mobile */
+    }
+
+    .orbit-stage {
+      width: 320px;
+      height: 320px;
+      transform: scale(0.85);
+    }
+
+    .orbit-ring-outer {
+      width: 300px;
+      height: 300px;
+    }
+
+    .orbit-ring-inner {
+      width: 190px;
+      height: 190px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-main-cta, .hero-secondary-cta {
+      width: 100%;
+    }
+  }
+</style>

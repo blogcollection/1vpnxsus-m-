@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnnouncementBar from '../components/AnnouncementBar.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import PricingSection from '../components/PricingSection.astro';
+import WhyChooseSection from '../components/WhyChooseSection.astro';
+import NodeRegionsSection from '../components/NodeRegionsSection.astro';
+import JourneySection from '../components/JourneySection.astro';
+import ClientSupportSection from '../components/ClientSupportSection.astro';
+import UseCasesSection from '../components/UseCasesSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import FinalCtaSection from '../components/FinalCtaSection.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config/site';
+---
+
+<Layout title={siteConfig.seoTitle} description={siteConfig.seoDescription} canonicalPath="/">
+  <!-- Sticky Announcement Bar -->
+  <AnnouncementBar />
+
+  <!-- Main Theme Park Header -->
+  <Header />
+
+  <!-- Main Content Flow -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <Hero />
+
+    <!-- Pricing Section -->
+    <PricingSection />
+
+    <!-- Why Choose XSUS Functional Zones -->
+    <WhyChooseSection />
+
+    <!-- Node Regions Section -->
+    <NodeRegionsSection />
+
+    <!-- 4-Step Theme Park Journey Route -->
+    <JourneySection />
+
+    <!-- Client Compatibility Section -->
+    <ClientSupportSection />
+
+    <!-- Use Cases Section -->
+    <UseCasesSection />
+
+    <!-- Accessible FAQ Accordion Section -->
+    <FaqSection />
+
+    <!-- Final High-Energy CTA Section -->
+    <FinalCtaSection />
+  </main>
+
+  <!-- Complete Topic-Rich Footer -->
+  <Footer />
+
+  <!-- Mobile Floating Sticky CTA (Bottom Bar for Quick Conversions) -->
+  <div class="mobile-sticky-cta" aria-label="移动端快速开通浮条">
+    <div class="sticky-inner">
+      <div class="sticky-text">
+        <span class="sticky-title">XSUS 极速节点</span>
+        <span class="sticky-sub">月付低至 ¥12.8</span>
+      </div>
+      <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange sticky-btn">
+        <span>立即开通</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--c-deep-purple);
+    border-top: 3px solid var(--c-dark);
+    padding: 0.75rem 1rem;
+    z-index: 45;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.25);
+    display: none;
+  }
+
+  .sticky-inner {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .sticky-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .sticky-title {
+    color: var(--c-yellow);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 900;
+  }
+
+  .sticky-sub {
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .sticky-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-sticky-cta {
+      display: block;
+    }
+  }
+</style>

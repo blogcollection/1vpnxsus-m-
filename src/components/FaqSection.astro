@@ -1,0 +1,182 @@
+---
+import { faqList } from '../data/faq';
+---
+
+<section id="faq" class="faq-section" aria-labelledby="faq-title">
+  <div class="container-custom">
+    <!-- Header -->
+    <div class="section-header">
+      <div class="section-badge">
+        <span>❓ FAQ & ANSWERS</span>
+      </div>
+      <h2 id="faq-title" class="section-title">常见问题与解答</h2>
+      <p class="section-desc">
+        汇总了新老用户最关心的 12 个核心问题。如果仍有疑问，欢迎随时联系客服或加入社群交流。
+      </p>
+    </div>
+
+    <!-- Semantic Accordion (100% crawlable by SEO bots without JS) -->
+    <div class="faq-accordion-list">
+      {faqList.map((item, index) => (
+        <details class="faq-item tp-card" open={index === 0}>
+          <summary class="faq-summary">
+            <div class="summary-left">
+              <span class="faq-q-badge">Q{index + 1}</span>
+              <h3 class="faq-question-text">{item.question}</h3>
+            </div>
+            <div class="faq-chevron" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+          </summary>
+          <div class="faq-answer-content">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background-color: var(--c-cream);
+    padding: 5.5rem 0;
+    border-bottom: 4px solid var(--c-dark);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: var(--c-deep-purple);
+    color: var(--c-yellow);
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    font-weight: 900;
+    font-size: 0.85rem;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--c-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-desc {
+    font-size: 1.15rem;
+    color: #554e60;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* Accordion List */
+  .faq-accordion-list {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .faq-item {
+    background: #ffffff;
+    border: 3px solid var(--c-dark);
+    border-radius: 16px;
+    box-shadow: 4px 4px 0px var(--c-dark);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .faq-item[open] {
+    box-shadow: 6px 6px 0px var(--c-dark);
+    border-color: var(--c-dark);
+  }
+
+  .faq-summary {
+    list-style: none;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    user-select: none;
+    background: #ffffff;
+    transition: background-color 0.15s ease;
+  }
+
+  .faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-summary:hover {
+    background-color: #faf7ff;
+  }
+
+  .summary-left {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .faq-q-badge {
+    background-color: var(--c-bright-purple);
+    color: var(--c-yellow);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 900;
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    flex-shrink: 0;
+  }
+
+  .faq-question-text {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--c-dark);
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .faq-chevron {
+    color: var(--c-orange);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer-content {
+    padding: 0 1.5rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #443c50;
+    border-top: 1.5px dashed rgba(23, 19, 31, 0.15);
+    padding-top: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .faq-summary {
+      padding: 1rem 1.25rem;
+    }
+    .faq-question-text {
+      font-size: 1rem;
+    }
+  }
+</style>

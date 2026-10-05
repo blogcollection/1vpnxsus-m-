@@ -1,0 +1,291 @@
+---
+import { nodeRegions } from '../data/nodes';
+import { siteConfig } from '../config/site';
+---
+
+<section id="nodes" class="nodes-section" aria-labelledby="nodes-title">
+  <div class="container-custom">
+    <!-- Header -->
+    <div class="section-header">
+      <div class="section-badge">
+        <span>🗺️ GLOBAL ATTRACTIONS</span>
+      </div>
+      <h2 id="nodes-title" class="section-title">常用地区，一眼找到</h2>
+      <p class="section-desc">
+        亚太骨干低延迟专线与欧美海量资源节点，全天候负载监控，告别高峰期拥堵卡顿。
+      </p>
+    </div>
+
+    <!-- Node Ticket Grid -->
+    <div class="nodes-grid">
+      {nodeRegions.map((region) => (
+        <div class="tp-card node-ticket" style={`background-color: ${region.ticketBg}; color: ${region.textColor};`}>
+          <!-- Ticket Header -->
+          <div class="ticket-header">
+            <div class="ticket-flag-wrap">
+              <span class="ticket-flag" aria-hidden="true">{region.flag}</span>
+              <div>
+                <h3 class="ticket-name">{region.nameZh}</h3>
+                <span class="ticket-name-en">{region.nameEn}</span>
+              </div>
+            </div>
+
+            <!-- Ping Tag -->
+            <div class="ticket-ping">
+              <span>{region.latencyRating}</span>
+            </div>
+          </div>
+
+          <!-- Tagline -->
+          <div class="ticket-tag-row">
+            <span class="ticket-tag-pill" style={`background-color: ${region.badgeColor}; color: ${region.badgeColor === '#FFD629' ? '#17131F' : '#FFFFFF'};`}>
+              {region.tag}
+            </span>
+          </div>
+
+          <!-- Description -->
+          <p class="ticket-desc">{region.description}</p>
+
+          <!-- Perforated Ticket Line -->
+          <div class="ticket-divider" aria-hidden="true"></div>
+
+          <!-- Use cases -->
+          <div class="ticket-footer">
+            <span class="use-title">推荐场景：</span>
+            <div class="use-tags">
+              {region.useFor.map((item) => (
+                <span class="use-pill">{item}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom Action CTA -->
+    <div class="nodes-cta-banner">
+      <div class="cta-banner-text">
+        <h3>想要即刻体验全节点极速连接？</h3>
+        <p>支持一键批量测速与客户端智能自动优选最快线路</p>
+      </div>
+      <a href={siteConfig.registerUrl} class="tp-btn tp-btn-yellow">
+        <span>获取全部节点订阅</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .nodes-section {
+    background-color: var(--c-bright-purple);
+    padding: 5.5rem 0;
+    border-bottom: 4px solid var(--c-dark);
+    color: #ffffff;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: var(--c-yellow);
+    color: var(--c-dark);
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    font-weight: 900;
+    font-size: 0.85rem;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    text-shadow: 3px 3px 0px var(--c-dark);
+  }
+
+  .section-desc {
+    font-size: 1.15rem;
+    color: #f6eeff;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  /* Grid */
+  .nodes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .nodes-grid > :nth-child(4) {
+      grid-column: 1 / span 1;
+    }
+    .nodes-grid > :nth-child(5) {
+      grid-column: 2 / span 2;
+    }
+  }
+
+  .node-ticket {
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    border: 3.5px solid var(--c-dark);
+  }
+
+  .ticket-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .ticket-flag-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .ticket-flag {
+    font-size: 2.2rem;
+    line-height: 1;
+  }
+
+  .ticket-name {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .ticket-name-en {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+  }
+
+  .ticket-ping {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.65rem;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--c-yellow);
+    white-space: nowrap;
+  }
+
+  .ticket-tag-row {
+    margin: 1rem 0 0.5rem;
+  }
+
+  .ticket-tag-pill {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    border: 1.5px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+  }
+
+  .ticket-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.92;
+    margin: 0.5rem 0 1.25rem;
+  }
+
+  .ticket-divider {
+    border-bottom: 2px dashed rgba(255, 255, 255, 0.3);
+    margin: 0 -1.5rem 1rem;
+  }
+
+  .ticket-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .use-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    opacity: 0.8;
+  }
+
+  .use-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .use-pill {
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+
+  /* Bottom CTA banner */
+  .nodes-cta-banner {
+    margin-top: 3.5rem;
+    background-color: var(--c-orange);
+    border: 3.5px solid var(--c-dark);
+    border-radius: 20px;
+    padding: 1.75rem 2.5rem;
+    box-shadow: 6px 6px 0px var(--c-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .cta-banner-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px var(--c-dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .cta-banner-text p {
+    font-size: 0.95rem;
+    color: #fff2e0;
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .nodes-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nodes-grid > :nth-child(5) {
+      grid-column: auto;
+    }
+
+    .nodes-cta-banner {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.75rem 1.5rem;
+    }
+  }
+</style>

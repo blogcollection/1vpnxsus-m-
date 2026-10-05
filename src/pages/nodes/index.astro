@@ -1,0 +1,256 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AnnouncementBar from '../../components/AnnouncementBar.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { nodeRegions } from '../../data/nodes';
+import { siteConfig } from '../../config/site';
+---
+
+<Layout
+  title="XSUS全球节点与地区线路分布概览 - XSUS官网"
+  description="XSUS（十八线小机场）全球骨干节点与加速线路详情，包含香港、日本、台湾、新加坡、美国各节点的延迟特征、适用场景与带宽状态。"
+  canonicalPath="/nodes/"
+>
+  <AnnouncementBar />
+  <Header />
+
+  <main class="page-main">
+    <div class="container-custom">
+      <nav class="breadcrumb-nav" aria-label="面包屑导航">
+        <a href="/">首页</a>
+        <span class="bc-sep">/</span>
+        <span class="bc-current">节点地区</span>
+      </nav>
+
+      <div class="page-hero tp-card">
+        <span class="page-badge">🌐 GLOBAL NETWORK</span>
+        <h1 class="page-title">XSUS 全球骨干节点分布</h1>
+        <p class="page-desc">
+          我们精选亚太与欧美高可用数据中心，全节点配备 BGP / CN2 优质回国与骨干中继，兼顾超低延迟与大带宽吞吐。
+        </p>
+      </div>
+
+      <div class="nodes-detailed-list">
+        {nodeRegions.map((region) => (
+          <div id={region.id} class="node-detail-card tp-card">
+            <div class="node-detail-header" style={`background-color: ${region.ticketBg}; color: ${region.textColor};`}>
+              <div class="header-left">
+                <span class="node-flag">{region.flag}</span>
+                <div>
+                  <h2>{region.nameZh} 节点 ({region.nameEn})</h2>
+                  <span class="node-tag-text">{region.tag}</span>
+                </div>
+              </div>
+              <div class="header-right">
+                <span class="latency-badge">{region.latencyRating}</span>
+              </div>
+            </div>
+
+            <div class="node-detail-body">
+              <p class="node-intro">{region.description}</p>
+              
+              <div class="node-rec-section">
+                <h3>🎯 最佳适用场景：</h3>
+                <div class="rec-tags">
+                  {region.useFor.map((tag) => (
+                    <span class="rec-pill">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="nodes-cta-box tp-card">
+        <h2>即刻畅连全球 5 大核心区域节点</h2>
+        <p>所有 XSUS 套餐均包含全量节点无门槛使用权限</p>
+        <a href={siteConfig.registerUrl} class="tp-btn tp-btn-orange">
+          立即开通节点订阅
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .page-main {
+    background-color: var(--c-cream);
+    padding: 3rem 0 5rem;
+    min-height: 80vh;
+  }
+
+  .breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #666;
+  }
+
+  .breadcrumb-nav a {
+    color: var(--c-bright-purple);
+  }
+
+  .bc-sep {
+    color: #999;
+  }
+
+  .page-hero {
+    background-color: var(--c-deep-purple);
+    color: #ffffff;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .page-badge {
+    display: inline-block;
+    background-color: var(--c-yellow);
+    color: var(--c-dark);
+    font-weight: 900;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .page-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--c-yellow);
+    text-shadow: 2px 2px 0px var(--c-dark);
+  }
+
+  .page-desc {
+    font-size: 1.1rem;
+    max-width: 680px;
+    margin: 0 auto;
+    color: #f2e9ff;
+    line-height: 1.6;
+  }
+
+  .nodes-detailed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .node-detail-card {
+    background: #ffffff;
+  }
+
+  .node-detail-header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 3px solid var(--c-dark);
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .node-flag {
+    font-size: 2.4rem;
+  }
+
+  .header-left h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .node-tag-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    opacity: 0.9;
+  }
+
+  .latency-badge {
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--c-yellow);
+    font-weight: 900;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 8px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    white-space: nowrap;
+  }
+
+  .node-detail-body {
+    padding: 2rem;
+  }
+
+  .node-intro {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+
+  .node-rec-section h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--c-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .rec-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .rec-pill {
+    background-color: var(--c-cream);
+    color: var(--c-dark);
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    border: 1.5px solid var(--c-dark);
+  }
+
+  .nodes-cta-box {
+    background-color: var(--c-yellow);
+    padding: 3rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nodes-cta-box h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 900;
+  }
+
+  @media (max-width: 640px) {
+    .node-detail-header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.25rem;
+    }
+    .node-detail-body {
+      padding: 1.25rem;
+    }
+  }
+</style>

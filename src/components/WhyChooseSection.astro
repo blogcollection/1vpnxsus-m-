@@ -1,0 +1,192 @@
+---
+import { featureZones } from '../data/features';
+---
+
+<section id="features" class="why-section" aria-labelledby="why-title">
+  <div class="container-custom">
+    <!-- Section Header -->
+    <div class="section-header">
+      <div class="section-badge">
+        <span>🎡 THEME ZONES</span>
+      </div>
+      <h2 id="why-title" class="section-title">为什么选择 XSUS？</h2>
+      <p class="section-desc">
+        拒绝繁琐参数与虚假吹捧，四大主题区域，给你简单直接、稳定好用的加速体验。
+      </p>
+    </div>
+
+    <!-- 4 Functional Theme Zones -->
+    <div class="zones-grid">
+      {featureZones.map((zone) => (
+        <div class="zone-card tp-card" style={`background-color: ${zone.bgColor}; color: ${zone.textColor};`}>
+          <!-- Top Row: Big Number + Badge -->
+          <div class="zone-top-row">
+            <span class="zone-big-number">{zone.number}</span>
+            <span class="zone-badge-pill" style={`color: ${zone.bgColor};`}>
+              {zone.badgeText}
+            </span>
+          </div>
+
+          <!-- Zone Title -->
+          <div class="zone-content">
+            <h3 class="zone-title">{zone.title}</h3>
+            <p class="zone-subtitle">{zone.subtitle}</p>
+
+            <!-- Pill Tag List -->
+            <div class="zone-pills">
+              {zone.highlightList.map((tag) => (
+                <span class="zone-pill-item">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <p class="zone-description">
+              {zone.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-section {
+    background-color: var(--c-cream);
+    padding: 5.5rem 0;
+    border-bottom: 4px solid var(--c-dark);
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    background-color: var(--c-orange);
+    color: #ffffff;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    font-weight: 900;
+    font-size: 0.85rem;
+    border: 2px solid var(--c-dark);
+    box-shadow: 3px 3px 0px var(--c-dark);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--c-dark);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-desc {
+    font-size: 1.15rem;
+    color: #554e60;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  /* Zones Grid */
+  .zones-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .zone-card {
+    padding: 2.5rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+  }
+
+  .zone-top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .zone-big-number {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -2px;
+    text-shadow: 3px 3px 0px var(--c-dark);
+    opacity: 0.95;
+  }
+
+  .zone-badge-pill {
+    background-color: #ffffff;
+    font-weight: 900;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    border: 2px solid var(--c-dark);
+    box-shadow: 2px 2px 0px var(--c-dark);
+    letter-spacing: 0.5px;
+  }
+
+  .zone-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .zone-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+  }
+
+  .zone-subtitle {
+    font-size: 1.05rem;
+    font-weight: 700;
+    opacity: 0.9;
+  }
+
+  .zone-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 0.75rem;
+  }
+
+  .zone-pill-item {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    color: inherit;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.3rem 0.75rem;
+    border-radius: 8px;
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .zone-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.92;
+  }
+
+  @media (max-width: 900px) {
+    .zones-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .zone-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
